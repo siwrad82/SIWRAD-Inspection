@@ -1,0 +1,8 @@
+{
+  "appId": "com.siwrad.inspection",
+  "appName": "SIWRAD Inspection",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
