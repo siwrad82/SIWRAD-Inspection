@@ -26,10 +26,9 @@ btnCamera.addEventListener("click", async () => {
         previewImage.style.display = "block";
         previewText.style.display = "none";
 
-    } catch (e) {
+    catch (e) {
 
-        alert("Pengambilan foto dibatalkan.");
+    console.error(e);
+    alert("Error Camera:\n" + e);
 
-    }
-
-});
+}
