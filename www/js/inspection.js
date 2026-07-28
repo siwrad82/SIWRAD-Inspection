@@ -8,7 +8,6 @@ Build   : 003
 */
 
 const btnStart = document.getElementById("btnStart");
-
 btnStart.addEventListener("click", function () {
 
     const equipment = document.getElementById("equipment").value.trim();
@@ -16,18 +15,11 @@ btnStart.addEventListener("click", function () {
     const assetNumber = document.getElementById("assetNumber").value.trim();
     const inspector = document.getElementById("inspector").value.trim();
 
-    if (
-        equipment === "" ||
-        location === "" ||
-        assetNumber === "" ||
-        inspector === ""
-    ) {
+    if (!equipment || !location || !assetNumber || !inspector) {
         alert("Silakan lengkapi semua data inspeksi.");
         return;
     }
 
-    alert("Data inspeksi siap.\nCamera Engine akan dibuka pada Build 004.");
+    window.location.href = "camera.html";
 
-    // Build 004
-    // window.location.href = "camera.html";
 });
