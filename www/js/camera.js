@@ -3,15 +3,19 @@
 SIWRAD Inspection
 Camera Engine
 Version : 1.0.0
-Build   : 005.1
+Build   : 005.2
 ====================================
 */
+
+alert("camera.js berhasil dimuat");
 
 const btnCamera = document.getElementById("btnCamera");
 const previewImage = document.getElementById("previewImage");
 const previewText = document.getElementById("previewText");
 
 btnCamera.addEventListener("click", async () => {
+
+    alert("Tombol Ambil Foto diklik");
 
     try {
 
@@ -26,9 +30,11 @@ btnCamera.addEventListener("click", async () => {
         previewImage.style.display = "block";
         previewText.style.display = "none";
 
-    catch (e) {
+    } catch (e) {
 
-    console.error(e);
-    alert("Error Camera:\n" + e);
+        console.error(e);
+        alert("Error Camera:\n" + e);
 
-}
+    }
+
+});
