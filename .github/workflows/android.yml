@@ -34,10 +34,20 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-
+          cache: gradle
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+   - name: Refresh Gradle Dependencies
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew --refresh-dependencies
 
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
       - name: Build Debug APK
         run: |
           cd android
