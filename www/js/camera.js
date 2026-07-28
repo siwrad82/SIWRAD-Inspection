@@ -6,19 +6,15 @@ Version : 1.0.0
 Build   : 005.2
 ====================================
 */
+let currentPhoto = null;
 
-alert("camera.js berhasil dimuat");
-
+const btnPreview = document.getElementById("btnPreview");
 const btnCamera = document.getElementById("btnCamera");
 const previewImage = document.getElementById("previewImage");
 const previewText = document.getElementById("previewText");
 
 btnCamera.addEventListener("click", async () => {
-
-    alert("Tombol Ambil Foto diklik");
-
     try {
-
         const photo = await Capacitor.Plugins.Camera.getPhoto({
             quality: 90,
             allowEditing: false,
@@ -31,10 +27,17 @@ btnCamera.addEventListener("click", async () => {
         previewText.style.display = "none";
 
     } catch (e) {
+        console.error("Camera Error:", e);
+    }
+});
+btnPreview.addEventListener("click", () => {
 
-        console.error(e);
-        alert("Error Camera:\n" + e);
-
+    if (currentPhoto) {
+        previewImage.src = currentPhoto;
+        previewImage.style.display = "block";
+        previewText.style.display = "none";
+    } else {
+        alert("Belum ada foto.");
     }
 
 });
