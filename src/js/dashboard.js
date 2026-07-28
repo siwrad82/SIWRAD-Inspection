@@ -8,7 +8,7 @@ Build   : 002
 */
 
 function openInspection() {
-    alert("Menu Inspeksi Baru");
+    window.location.href = "inspection.html";
 }
 
 function openHistory() {
