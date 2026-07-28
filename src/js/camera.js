@@ -1,24 +1,35 @@
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+/*
+====================================
+SIWRAD Inspection
+Camera Engine
+Version : 1.0.0
+Build   : 005.1
+====================================
+*/
 
 const btnCamera = document.getElementById("btnCamera");
 const previewImage = document.getElementById("previewImage");
 const previewText = document.getElementById("previewText");
 
 btnCamera.addEventListener("click", async () => {
+
     try {
-        const photo = await Camera.getPhoto({
+
+        const photo = await Capacitor.Plugins.Camera.getPhoto({
             quality: 90,
             allowEditing: false,
-            resultType: CameraResultType.Uri,
-            source: CameraSource.Camera
+            resultType: "uri",
+            source: "CAMERA"
         });
 
         previewImage.src = photo.webPath;
         previewImage.style.display = "block";
         previewText.style.display = "none";
 
-    } catch (err) {
+    } catch (e) {
+
         alert("Pengambilan foto dibatalkan.");
-        console.error(err);
+
     }
+
 });
