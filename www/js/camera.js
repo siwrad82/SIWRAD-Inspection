@@ -16,15 +16,19 @@ const previewText = document.getElementById("previewText");
 btnCamera.addEventListener("click", async () => {
     try {
         const photo = await Capacitor.Plugins.Camera.getPhoto({
-            quality: 90,
-            allowEditing: false,
-            resultType: "uri",
-            source: "CAMERA"
-        });
+    quality: 90,
+    allowEditing: false,
+    resultType: "uri",
+    source: "CAMERA"
+});
 
-        previewImage.src = photo.webPath;
-        previewImage.style.display = "block";
-        previewText.style.display = "none";
+currentPhoto = photo.webPath;
+console.log("Photo:", photo);
+console.log("currentPhoto:", currentPhoto);
+
+previewImage.src = currentPhoto;
+previewImage.style.display = "block";
+previewText.style.display = "none";
 
     } catch (e) {
         console.error("Camera Error:", e);
