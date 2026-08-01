@@ -22,7 +22,17 @@ btnCamera.addEventListener("click", async () => {
     source: "CAMERA"
 });
 
-currentPhoto = photo.webPath;
+currentPhoto = photo.webPath || photo.path;
+
+console.console.log("Photo:", photo);
+console.log("currentPhoto:", currentPhoto);
+
+previewImage.src = currentPhoto;
+previewImage.style.display = "block";
+previewText.style.display = "none";("Photo Object:", photo);
+console.log("webPath:", photo.webPath);
+console.log("path:", photo.path);
+console.log("currentPhoto:", currentPhoto);
 console.log("Photo:", photo);
 console.log("currentPhoto:", currentPhoto);
 
@@ -36,7 +46,20 @@ previewText.style.display = "none";
 });
 btnPreview.addEventListener("click", () => {
 
-    if (currentPhoto) {
+    if (!currentPhoto) {
+        alert("Belum ada foto.");
+        return;
+    }
+
+    previewImage.src = currentPhoto;
+    previewImage.style.display = "block";
+    previewText.style.display = "none";
+
+});
+
+    console.log("Preview:", currentPhoto);
+
+    if (currentPhoto !== null) {
         previewImage.src = currentPhoto;
         previewImage.style.display = "block";
         previewText.style.display = "none";
